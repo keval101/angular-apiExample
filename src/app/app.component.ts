@@ -12,14 +12,19 @@ export class AppComponent {
   userArr:{id:number, title:string, body:string}[] = [];
 
   onFetch(){
-    return this.http.get<{id:number, title:string, body:string}[]>('https://jsonplaceholder.typicode.com/posts').pipe(
-      map( resArr => {
-        for(let key in resArr){
-          this.userArr.push(resArr[key])
+    return this.http.get<{id:number, title:string, body:string}[]>('https://jsonplaceholder.typicode.com/posts')
+    // .pipe(
+    //   map( resArr => {
+    //     for(let key in resArr){
+    //       this.userArr.push(resArr[key])
+    //     }
+    //     return resArr
+    //   }))
+      .subscribe(
+        (response) => {
+          const data = JSON.stringify(response);
+          this.userArr = JSON.parse(data)
         }
-        return resArr
-      })).subscribe(
-      res => console.log(res)
     )
   }
 }

@@ -2,14 +2,21 @@
   <div class="row">
     <div class="col-md-8 offset-md-2">
       <button class="btn btn-primary" (click)='onFetch()'>Fetch Post</button>
-      
-      <ul class="list-group">
-        <li class="list-group-item mt-3 " *ngFor = ' let user of userArr'>
-          <p>{{user.id}}</p>
-          <p>{{user.title}}</p>
-          <p>{{user.body}}</p>
-        </li>
-      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 " >
+      <div class="customBox">
+        <div class="card mt-3 p-2" *ngFor = 'let user of userArr'>
+          <div class="card-body">
+            <p>{{user.id}}</p>
+            <p>{{user.title}}</p>
+            <p>{{user.body}}</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
